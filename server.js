@@ -10,15 +10,9 @@ if (process.pid) {
 
 const app = express()
 
-// app.get('', function(req, res) {
-//     urllib.request('', function(err, data) {
-//         console.log('b');
-//         res.send(data)
-//     })
-//     console.log('a');
-// })
+app.use(express.static(path.join(__dirname, '/node_modules')))
 app.use(express.static(path.join(__dirname, 'dist')))
-app.use(express.static(path.join(__dirname, 'node_modules')))
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: false
@@ -45,17 +39,17 @@ app.get('/teams/:teamName', function (request, response) {
         let result = JSON.parse(data.toString())
         result = result.league.standard
  
-        result = result.filter(item => /*item.teamId === teamID && */item.isActive)
+        result = result.filter(item => item.teamId === teamID && item.isActive)
         result = result.map(item => {
             return { 
                 firstName: item.firstName,
                 lastName: item.lastName,
+                jersey: item.jersey,
+                position: item.pos,
                 img: `https:nba-players.herokuapp.com/players/${item.lastName}/${item.firstName}`
                     }
                        })
-        
-
-        console.log(result)
+                       
         response.send(result)
     })
 })

@@ -16,16 +16,17 @@
 
   <div id="players"></div>
 
-  <!-- <script id="first-template" type="text/x-handlebars-template">   
-    
-        {{#each }}
-            <div>{{ this }}</div>
-        {{/each}}
-       
-  </script> -->
+  <script id="first-template" type="text/x-handlebars-template">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+    {{#each team}}
+      <!-- <img src={{this.img}}> -->
+      <p>{{this.firstName}} {{this.lastName}} {{this.jersey}} {{this.position}}</p>
+    {{/each}}
+       
+  </script>
+
   <script src="./jquery/dist/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
   <script src="main.js"></script>
 </body>
 

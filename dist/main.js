@@ -1,20 +1,13 @@
-const fetchData = function () {
+const fetchData = function() {
     let input = $("#input").val()
-    console.log(input)
 
-    $.get(`/teams/${input}`, function (teamID) {
-        $("#players").append(`<div>${teamID} - ${teamID}</div>`)
-        console.log(teamID)
+    $.get(`/teams/${input}`, function(team) {
+       
+        const source = $('#first-template').html()
+        const template = Handlebars.compile(source)
+        let newHTML = template({team: team})
+        $('#players').append(newHTML)
     })
 }
 
-
-// const fetchData = function () {
-//     let input = $("#input").val()
-
-//     $.get(`books/${input}`, function (bookData) {
-//         $("body").append(`<div>${bookData.title} - ${bookData.author}</div>`)
-//         console.log(bookData)
-//     })
-// }
-
+fetchData()
