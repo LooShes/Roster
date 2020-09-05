@@ -105,6 +105,10 @@ input:focus::placeholder {
     color: rgb(31, 26, 12);
 }
 
+#img {
+    background-color: #40a8c4;
+}
+
 .BUTTON_PBM {
     background: #f6873d;
     background-image: -webkit-linear-gradient(top, #ffc93c, #40a8c4);
