@@ -40,13 +40,13 @@ app.get('/teams/:teamName', function (request, response) {
         result = result.league.standard
  
         result = result.filter(item => item.teamId === teamID && item.isActive)
-        result = result.map(item => {
+        result = result.map((item) => { 
             return { 
                 firstName: item.firstName,
                 lastName: item.lastName,
                 jersey: item.jersey,
                 position: item.pos,
-                img: `https:nba-players.herokuapp.com/players/${item.lastName}/${item.firstName}`
+                img: `https:nba-players.herokuapp.com/players/${item.lastName}/${item.firstName}`,
                     }
                        })
                        

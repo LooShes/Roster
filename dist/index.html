@@ -4,24 +4,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
   <title>My Roster</title>
 </head>
 
 <body>
-  <div id="container">
-    <input type="text" id="input" placeholder="Enter team name">
-    <button onclick="fetchData()">Search</button>
-  </div>
+  <input type="text" id="input" placeholder="Enter team name">
+  <a href="#" id="btn" onclick="fetchData()" class="BUTTON_PBM">Find Roster</a>
 
   <div id="players"></div>
 
   <script id="first-template" type="text/x-handlebars-template">
-
+   
     {{#each team}}
-      <!-- <img src={{this.img}}> -->
-      <p>{{this.firstName}} {{this.lastName}} {{this.jersey}} {{this.position}}</p>
-    {{/each}}
+    <div id={{inc @index}} class="single-player">
+        <p id="name">{{this.firstName}} {{this.lastName}}</p>
+        <p id="position">{{this.position}}</p>
+        <img src="{{this.img}}" alt="player.jpg" id="image">
+        <p id="jersey">{{this.jersey}}</p>
+    </div>
+  {{/each}}
+  
        
   </script>
 
