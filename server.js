@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }))
 
-const port = 3000
+const port = 8080
 app.listen(port, function () {
     console.log(`Running server on port ${port}`)
 })
@@ -38,7 +38,7 @@ app.get('/teams/:teamName', function (request, response) {
 
         let result = JSON.parse(data.toString())
         result = result.league.standard
- 
+        console.log(result)
         result = result.filter(item => item.teamId === teamID && item.isActive)
         result = result.map((item) => { 
             return { 
@@ -49,7 +49,7 @@ app.get('/teams/:teamName', function (request, response) {
                 img: `https:nba-players.herokuapp.com/players/${item.lastName}/${item.firstName}`,
                     }
                        })
-                       
+        console.log(result)              
         response.send(result)
     })
 })
